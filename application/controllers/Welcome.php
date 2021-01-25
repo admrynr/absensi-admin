@@ -18,12 +18,13 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
 	public function index()
 	{
-		$data = array(
-        'title' => 'HRIS Selaras Mitra Integra',
-		);
-		$this->load->view('head', $data);
+		$this->load->helper('url');
+		$this->load->view('layout/head');
+		$this->load->view('layout/header');
 		$this->load->view('welcome_message');
+		$this->load->view('layout/footer');
 	}
 }
