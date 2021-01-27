@@ -11,8 +11,8 @@
                     <div class="logo">
                         
                         <a href="index.html" class="logo">
-                            <img src="assets/images/logo-sm.png" alt="" class="logo-small">
-                            <img src="assets/images/logo-smi.png" alt="" class="logo-large img-fluid" style="width: 60px; height: auto; margin: 10px 0px;">
+                            <img src="<?php echo base_url('assets/images/logo-sm.png')?>" alt="" class="logo-small">
+                            <img src="<?php echo base_url('assets/images/logo-smi.png')?>" alt="" class="logo-large img-fluid" style="width: 60px; height: auto; margin: 10px 0px;">
                         </a>
 
                     </div>
@@ -86,7 +86,7 @@
                                         <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-right">11</span><i class="mdi mdi-settings m-r-5"></i> Settings</a>
                                         <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline m-r-5"></i> Lock screen</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item text-danger" href="#"><i class="mdi mdi-power text-danger"></i> Logout</a>
+                                        <a class="dropdown-item text-danger" href="<?php echo site_url('login/index')?>"><i class="mdi mdi-power text-danger"></i> Logout</a>
                                     </div>                                                                    
                                 </div>
                             </li>
@@ -119,7 +119,7 @@
                             <h4 class="page-title">HRIS Admin</h4>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active">
-                                    Selamat Datang, User
+                                    Selamat Datang, <?php echo $this->session->user; ?>
                                 </li>
                             </ol>
                             <div class="state-information">

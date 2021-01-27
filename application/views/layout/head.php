@@ -7,7 +7,7 @@
         <title>HRIS Selaras Mitra Integra = Admin</title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="Themesbrand" name="author" />
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.ico')?>">
 
         <link rel="stylesheet" href="<?php echo base_url('plugins/morris/morris.css')?>">
 

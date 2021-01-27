@@ -1,13 +1,17 @@
-class Blog_model extends CI_Model {
+<?php
+class User_model extends CI_Model {
 
         public $title;
         public $content;
         public $date;
 
-        public function get_last_ten_entries()
+        public function get_user($usr)
         {
-                $query = $this->db->get('entries', 10);
-                return $query->result();
+                $query = $this->db->select('user_name, user_password')
+                                ->where('user_name', $usr)
+                                ->get('hrd_user_login');
+
+                return $query->row();
         }
 
         public function insert_entry()

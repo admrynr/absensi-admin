@@ -3,14 +3,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        © 2018 Lexa - <span class="d-none d-sm-inline-block"> Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</span>.
+                        © 2021 - <span class="d-none d-sm-inline-block"> Crafted with <i class="mdi mdi-heart text-danger"></i> by SMI</span>.
                     </div>
                 </div>
             </div>
         </footer>
         <!-- End Footer -->
 
-        <!-- jQuery  -->
+
         <script src="<?php echo base_url('assets/js/jquery.min.js')?>"></script>
         <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js')?>"></script>
         <script src="<?php echo base_url('assets/js/jquery.slimscroll.js')?>"></script>
