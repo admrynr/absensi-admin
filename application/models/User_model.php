@@ -14,6 +14,20 @@ class User_model extends CI_Model {
                 return $query->row();
         }
 
+        public function get_absen_lengkap()
+        {
+                $query = $this->db->query('select * from hrd_absen a left join hrd_user_login b on a.id_user = b.user_id left join hrd_pgw c on c.pgw_id = b.id_pgw');
+                return $query->result();
+        }
+
+        public function get_absen_harian()
+        {
+                $d = date('Y-m-d');
+                $sql = "select * from hrd_absen a left join hrd_user_login b on a.id_user = b.user_id left join hrd_pgw c on c.pgw_id = b.id_pgw where a.absen_tgl = ?";
+                $query = $this->db->query($sql, $d);
+                return $query->result();
+        }
+
         public function insert_entry()
         {
                 $this->title    = $_POST['title']; // please read the below note
