@@ -27,7 +27,7 @@
         <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
         <script> 
                     $(document).ready( function () {
-                        $('#tabelLengkap').DataTable({
+                        var table = $('#tabelLengkap').DataTable({
                             paging: false,
                             dom: 'Bfrtip',
                             scrollY: 400,
@@ -35,8 +35,16 @@
                             buttons: ['copy', 'excel','pdf']
                         });
 
-                        $('#tabelHarian').DataTable({
-                        });
+                        var tanggal = document.getElementById('bulan').value;
+
+                        var filteredData = table
+                            .column = (1)
+                            .data()
+                            .filter(function (value, index){
+                                return value == tanggal ? true : false;
+                            });
+
+                        
                         
                     });
         </script>
@@ -61,7 +69,13 @@
                                       }
                                    });
                                 });
-                            </script>
+            </script>
+
+            <script>
+                function cekTanggal(){
+                    console.log(document.getElementById('bulan').value);
+                }
+            </script>
         
 
         <!-- Required datatable js -->

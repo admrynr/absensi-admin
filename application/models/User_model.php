@@ -20,6 +20,13 @@ class User_model extends CI_Model {
                 return $query->result();
         }
 
+        public function get_absen_lengkap_filtered($tanggal)
+        {
+                $sql = "select * from hrd_absen a left join hrd_user_login b on a.id_user = b.user_id left join hrd_pgw c on c.pgw_id = b.id_pgw where DATE_FORMAT(a.absen_tgl, '%Y-%m') = ?";
+                $query = $this->db->query($sql, $tanggal);
+                return $query->result();
+        }
+
         public function get_absen_harian()
         {
                 $d = date('Y-m-d');

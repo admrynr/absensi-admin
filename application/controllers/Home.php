@@ -36,6 +36,7 @@ class Home extends CI_Controller {
 			$data['absen_harian'] = $this->user_model->get_absen_harian();
 			$data['date'] = $this->format_date_long(date('Y-m-d'));
 			$data['day'] = $this->get_day_name(date('Y-m-d'));
+			$data['month'] = null;
 
 			$this->load->view('layout/head');
 			$this->load->view('layout/header');
@@ -70,5 +71,50 @@ class Home extends CI_Controller {
 		$tanggal = explode("-",$in_tgl);
 		$hari =  date("w",mktime(0,0,0,$tanggal[1],$tanggal[2],$tanggal[0]));
 		return $dayName[$hari];
+	}
+
+	function filterByMonth()
+	{
+		$bln = $this->input->post('bulan');
+		$blnn = explode('-', $bln);
+		$blnnn = $blnn[1];
+		$jml_bln = " ";
+
+		if($blnnn == "01") $jml_bln = "31";
+
+		if($blnnn == "02") {
+			if(($bln_array[0]%4) == 0) {
+				$jml_bln = "29";
+			}else{
+				$jml_bln = "28";
+			}
+		}
+	
+		if($blnnn == "03") $jml_bln = 31;
+		if($blnnn == "04") $jml_bln = 30;
+		if($blnnn == "05") $jml_bln = 31;
+		if($blnnn == "06") $jml_bln = 30;
+		if($blnnn == "07") $jml_bln = 31;
+		if($blnnn == "08") $jml_bln = 31;
+		if($blnnn == "09") $jml_bln = 30;
+		if($blnnn == "10") $jml_bln = 31;
+		if($blnnn == "11") $jml_bln = 30;
+		if($blnnn == "12") $jml_bln = 31;
+
+		if(is_null($this->session->user))
+		{
+			redirect(site_url('login/index'));
+		}
+			$data['absen_lengkap'] = $this->user_model->get_absen_lengkap_filtered($bln);
+			$data['absen_harian'] = $this->user_model->get_absen_harian();
+			$data['date'] = $this->format_date_long(date('Y-m-d'));
+			$data['day'] = $this->get_day_name(date('Y-m-d'));
+			$data['month'] = $jml_bln;
+			$data['bln'] = $bln;
+
+			$this->load->view('layout/head');
+			$this->load->view('layout/header');
+			$this->load->view('welcome_message', $data);
+			$this->load->view('layout/footer');
 	}
 }
